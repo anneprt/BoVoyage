@@ -10,6 +10,7 @@ namespace BoVoyage
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
