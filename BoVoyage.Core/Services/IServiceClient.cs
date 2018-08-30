@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoVoyage
+namespace BoVoyage.Core.Services
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-			
-		}
-    }
+	class IServiceClient
+	{
+	}
 }
