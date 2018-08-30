@@ -8,8 +8,8 @@ namespace BoVoyage.Core.BusinessExceptions
 {
 	public class BusinessExceptions :Exception
 	{
-		public BusinessException(string message)
-		   : base(message)
+		public void BusinessException(string message)
+		   
 		{ }
 	}
 }
