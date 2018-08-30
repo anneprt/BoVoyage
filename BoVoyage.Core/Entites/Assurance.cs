@@ -9,5 +9,6 @@ namespace BoVoyage.Core.Entites
     public class Assurance
     {
         public double Montant { get; set; }
+        public TypeAssurance Annulation { get; set; }
     }
 }

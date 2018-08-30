@@ -9,7 +9,7 @@ namespace BoVoyage.Core.Entites
     public enum  EtatDossierReservation
     {
         EnAttente = 0,
-        EnCour    = 1,
+        EnCours   = 1,
         Refusee   = 2,
         Acceptee  = 3
 

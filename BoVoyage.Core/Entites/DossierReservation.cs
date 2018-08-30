@@ -13,8 +13,11 @@ namespace BoVoyage.Core.Entites
         public string NumeroCarteBancaire { get; set; }
         public double PrixParPersonne { get; set; }
         public double PrixTotal { get; set; }
+        public EtatDossierReservation Etat { get; set; }
+        public RaisonAnnulationDossier Raison { get; set; }
+       
 
-        public static void Annuler() { }
+        public static void Annuler()  { }
         public static void ValiderSolvabilite() { }
         public static void Accepter() { }
 
