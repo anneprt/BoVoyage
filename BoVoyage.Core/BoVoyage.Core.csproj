@@ -49,10 +49,20 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Data\Contexte.cs" />
+    <Compile Include="Entites\AgenceVoyage.cs" />
+    <Compile Include="Entites\Assurance.cs" />
+    <Compile Include="Entites\Client.cs" />
+    <Compile Include="Entites\Destination.cs" />
+    <Compile Include="Entites\DossierReservation.cs" />
+    <Compile Include="Entites\EtatDossierReservation.cs" />
+    <Compile Include="Entites\Participant.cs" />
+    <Compile Include="Entites\Personne.cs" />
+    <Compile Include="Entites\RaisonAnnulationDossier.cs" />
+    <Compile Include="Entites\TypeAssurance.cs" />
+    <Compile Include="Entites\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entites\" />
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
