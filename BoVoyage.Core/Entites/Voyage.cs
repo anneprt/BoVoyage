@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entites
@@ -9,6 +10,11 @@ namespace BoVoyage.Core.Entites
     public class Voyage
     {
         public int Id { get; set; }
+
+        public int IdDestination { get; set; }
+        [ForeignKey("IdDestination")]
+        public virtual Destination Destination { get; set; }
+
         public DateTime DateAller { get; set; }
         public DateTime DateRetour { get; set; }
         public int PlacesDisponibles { get; set; }
