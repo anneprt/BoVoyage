@@ -11,7 +11,15 @@ namespace BoVoyage.Core.Services
 {
 	public class ServiceVoyage
 	{
-		public void EnregistrerVoyage()
+        public Voyage TrouverVoyage(int id)
+        {
+            using (var contexte = new Contexte())
+            {
+                return contexte.Voyages.Find(id);
+            }
+        }
+
+        public void EnregistrerVoyage()
 		{
 			var voyage = new Voyage();
 
@@ -33,14 +41,20 @@ namespace BoVoyage.Core.Services
 			}
 		}
 
-		//TODO
-		public void FiltrerVoyage()
-		{
-			throw new NotImplementedException();
-		}
 
+        public IEnumerable<Voyage> FiltrerVoyage(string columnFiltre, object valeurFiltre)
+        {
+            using (var contexte = new Contexte())
+            {
+                switch (columnFiltre)
+                {
+                    case "destination": return contexte.Voyages.Where(x => x.Destination.Pays.StartsWith(valeurFiltre.ToString())).ToList();
+                    default: throw new Exception("Ca existe pas");
+                }
+            }
+        }
 
-		public IEnumerable<Voyage> ListerVoyage()
+        public IEnumerable<Voyage> ListerVoyage()
 		{
 			using (var contexte = new Contexte())
 			{
@@ -61,20 +75,16 @@ namespace BoVoyage.Core.Services
 			}
 		}
 
-		public void SupprimerVoyage(Voyage voyage)
+		public void SupprimerVoyage(int id)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Entry(voyage).State = EntityState.Deleted;
+                var voyage = contexte.Voyages.Find(id);
+                contexte.Entry(voyage).State = EntityState.Deleted;
 				contexte.SaveChanges();
 			}
 		}
 
-		//TODO
-		public void TrierVoyage()
-		{
-			throw new NotImplementedException();
-		}
-
+		
 	}
 }

@@ -11,7 +11,8 @@ namespace BoVoyage
     {
         static void Main(string[] args)
         {
-			
-		}
+            var application = new Application();
+            application.Demarrer();
+        }
     }
 }

@@ -39,6 +39,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.5.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,8 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessExceptions\BusinessExceptions.cs" />
-    <Compile Include="Class1.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
     <Compile Include="DAL\Contexte.cs" />
     <Compile Include="Entites\AgenceVoyage.cs" />
     <Compile Include="Entites\Assurance.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Entites\TypeAssurance.cs" />
     <Compile Include="Entites\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceAssurance.cs" />
     <Compile Include="Services\ServiceDestination.cs" />
     <Compile Include="Services\ServiceParticipant.cs" />
     <Compile Include="Services\ServiceDossierReservation.cs" />

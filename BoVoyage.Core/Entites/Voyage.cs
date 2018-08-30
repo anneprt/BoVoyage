@@ -22,9 +22,8 @@ namespace BoVoyage.Core.Entites
         public DateTime DateAller { get; set; }
         public DateTime DateRetour { get; set; }
         public int PlacesDisponibles { get; set; }
-        public double PrixParPersonne { get; set; }
+        public decimal PrixParPersonne { get; set; }
 
         public static void Reserver() { }
-
     }
 }

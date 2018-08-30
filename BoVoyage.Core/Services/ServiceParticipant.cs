@@ -11,7 +11,15 @@ namespace BoVoyage.Core.Services
 {
 	public class ServiceParticipant
 	{
-		public void EnregistrerParticipant()
+        public Participant TrouverParticipant(int id)
+        {
+            using (var contexte = new Contexte())
+            {
+                return contexte.Participants.Find(id);
+            }
+        }
+
+        public void EnregistrerParticipant()
 		{
 			var participant = new Participant();
 
@@ -33,14 +41,23 @@ namespace BoVoyage.Core.Services
 			}
 		}
 
-		//TODO
-		public void FiltrerParticipantt()
-		{
-			throw new NotImplementedException();
-		}
+
+        public IEnumerable<Participant> FiltrerParticipant(string columnFiltre, object valeurFiltre)
+        {
+            using (var contexte = new Contexte())
+            {
+                switch (columnFiltre)
+                {
+                    case "Nom": return contexte.Participants.Where(x => x.Nom.StartsWith(valeurFiltre.ToString())).ToList();
+                    case "Prenom": return contexte.Participants.Where(x => x.Prenom.StartsWith(valeurFiltre.ToString())).ToList();
+                    default: throw new Exception("Ca existe pas");
+                }
+            }
+
+        }
 
 
-		public IEnumerable<Participant> ListerParticipant()
+        public IEnumerable<Participant> ListerParticipant()
 		{
 			using (var contexte = new Contexte())
 			{
@@ -58,20 +75,17 @@ namespace BoVoyage.Core.Services
 
 			}
 		}
-		public void SupprimerParticipant(Client participant)
+		public void SupprimerParticipant(int id)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Entry(participant).State = EntityState.Deleted;
+                var participant = contexte.Destinations.Find(id);
+                contexte.Entry(participant).State = EntityState.Deleted;
 				contexte.SaveChanges();
 			}
 		}
 
-		//TODO
-		public void TrierParticipants()
-		{
-			throw new NotImplementedException();
-		}
+		
 
 	}
 }

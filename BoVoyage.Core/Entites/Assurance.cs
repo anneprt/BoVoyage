@@ -8,7 +8,8 @@ namespace BoVoyage.Core.Entites
 {
     public class Assurance
     {
-        public double Montant { get; set; }
-        public TypeAssurance Annulation { get; set; }
+        public int Id { get; set; }
+        public decimal Montant { get; set; }
+        public TypeAssurance Type { get; set; }
     }
 }
