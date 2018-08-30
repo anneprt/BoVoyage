@@ -62,6 +62,10 @@
     <Compile Include="Entites\TypeAssurance.cs" />
     <Compile Include="Entites\Voyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceDestination.cs" />
+    <Compile Include="Services\ServiceParticipant.cs" />
+    <Compile Include="Services\ServiceDossierReservation.cs" />
+    <Compile Include="Services\ServiceVoyage.cs" />
     <Compile Include="Services\ServiceClient.cs" />
   </ItemGroup>
   <ItemGroup />

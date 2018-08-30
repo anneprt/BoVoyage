@@ -9,55 +9,56 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Services
 {
-	public class ServiceClient 
+	public class ServiceDestination
 	{
-		public void EnregistrerClient()
+		public void EnregistrerDestination()
 		{
-			var client = new Client();
+			var destination = new Destination();
 
-			if (client.Id == 0)
+			if (destination.Id == 0)
 			{
-				CreerClient(client);
+				CreerDestination(destination);
 			}
 			else
 			{
-				ModifierClient(client);
+				ModifierDestination(destination);
 			}
 		}
-		public void CreerClient(Client client)
+		public void CreerDestination(Destination destination)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Clients.Add(client);
+				contexte.Destinations.Add(destination);
 				contexte.SaveChanges();
 			}
 		}
 
 		//TODO
-		public void FiltrerClient()
+		public void FiltrerDestination()
 		{
 			throw new NotImplementedException();
 		}
 
 
-		public IEnumerable<Client> ListerClient()
+		public IEnumerable<Destination> ListerDestination()
 		{
 			using (var contexte = new Contexte())
 			{
-				return contexte.Clients.OrderBy(x => x.Nom).ToList();
+				return contexte.Destinations.OrderBy(x => x.Continent).ToList();
 			}
 		}
 
-		public void ModifierClient(Client client)
+		public void ModifierDestination(Destination destination)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Clients.Attach(client);
-				contexte.Entry(client).State = EntityState.Modified;
+				contexte.Destinations.Attach(destination);
+				contexte.Entry(destination).State = EntityState.Modified;
 				contexte.SaveChanges();
 
 			}
 		}
+
 
 		public void SupprimerClient(Client client)
 		{

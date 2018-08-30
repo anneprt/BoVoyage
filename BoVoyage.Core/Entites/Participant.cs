@@ -8,7 +8,6 @@ namespace BoVoyage.Core.Entites
 {
     public class Participant : Personne
     {
-        public int Id { get; set; }
         public int NumeroUnique { get; set; }
         public float Reduction { get; set; }
     }

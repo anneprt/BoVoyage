@@ -9,67 +9,69 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Services
 {
-	public class ServiceClient 
+	public class ServiceVoyage
 	{
-		public void EnregistrerClient()
+		public void EnregistrerVoyage()
 		{
-			var client = new Client();
+			var voyage = new Voyage();
 
-			if (client.Id == 0)
+			if (voyage.Id == 0)
 			{
-				CreerClient(client);
+				CreerVoyage(voyage);
 			}
 			else
 			{
-				ModifierClient(client);
+				ModifierVoyage(voyage);
 			}
 		}
-		public void CreerClient(Client client)
+		public void CreerVoyage(Voyage voyage)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Clients.Add(client);
+				contexte.Voyages.Add(voyage);
 				contexte.SaveChanges();
 			}
 		}
 
 		//TODO
-		public void FiltrerClient()
+		public void FiltrerVoyage()
 		{
 			throw new NotImplementedException();
 		}
 
 
-		public IEnumerable<Client> ListerClient()
+		public IEnumerable<Voyage> ListerVoyage()
 		{
 			using (var contexte = new Contexte())
 			{
-				return contexte.Clients.OrderBy(x => x.Nom).ToList();
+				return contexte.Voyages.
+					OrderBy(x => x.DateAller).
+					 ToList();
 			}
 		}
 
-		public void ModifierClient(Client client)
+		public void ModifierVoyage(Voyage voyage)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Clients.Attach(client);
-				contexte.Entry(client).State = EntityState.Modified;
+				contexte.Voyages.Attach(voyage);
+				contexte.Entry(voyage).State = EntityState.Modified;
 				contexte.SaveChanges();
 
 			}
 		}
 
-		public void SupprimerClient(Client client)
+		public void SupprimerVoyage(Voyage voyage)
 		{
 			using (var contexte = new Contexte())
 			{
-				contexte.Entry(client).State = EntityState.Deleted;
+				contexte.Entry(voyage).State = EntityState.Deleted;
 				contexte.SaveChanges();
 			}
 		}
 
 		//TODO
-		public void TrierClient()
+		public void TrierVoyage()
 		{
 			throw new NotImplementedException();
 		}
