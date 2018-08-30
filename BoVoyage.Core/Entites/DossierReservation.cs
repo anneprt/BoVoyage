@@ -23,6 +23,11 @@ namespace BoVoyage.Core.Entites
         [ForeignKey("IdVoyage")]
         public virtual Voyage Voyage { get; set; }
 
+        public int IdAssurance { get; set; }
+        [ForeignKey("IdAssurance")]
+        public virtual Assurance Assurance { get; set; }
+
+
         public int NumeroUnique { get; set; }
         public string NumeroCarteBancaire { get; set; }
         public double PrixParPersonne { get; set; }
