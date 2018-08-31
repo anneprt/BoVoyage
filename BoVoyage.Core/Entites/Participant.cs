@@ -12,17 +12,17 @@ namespace BoVoyage.Core.Entites
     {
         public int NumeroUnique { get; set; }
 
-        public double Reduction
+        public float Reduction
         {
 
             get
             {
                 if (age < 12)
-                    return 0.6d;
+                    return 0.6f;
 
 
                 else
-                    return 0d;
+                    return 1f;
             }
         }
     }

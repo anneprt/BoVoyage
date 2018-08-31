@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Application.cs" />
     <Compile Include="ElementsAffichage.cs" />
+    <Compile Include="ModuleGestionParticipant.cs" />
     <Compile Include="ModuleGestionClient.cs" />
     <Compile Include="ModuleGestionDossierReservation.cs" />
     <Compile Include="ModuleGestionDestination.cs" />

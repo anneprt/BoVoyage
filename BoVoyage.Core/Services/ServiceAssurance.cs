@@ -10,7 +10,7 @@ namespace BoVoyage.Core.Services
 {
     public class ServiceAssurance
     {
-        public Assurance TrouverAssurance(int id)
+        public Assurance TrouverAssurance(int? id)
         {
             using (var contexte = new Contexte())
             {

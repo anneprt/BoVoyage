@@ -11,6 +11,9 @@ namespace BoVoyage.Core.Services
 {
     public class ServiceDossierReservation
     {
+        private readonly ServiceVoyage serviceVoyage = new ServiceVoyage();
+        private readonly ServiceAssurance serviceAssurance = new ServiceAssurance();
+
         public DossierReservation TrouverDossierReservation(int id)
         {
             using (var contexte = new Contexte())
@@ -79,6 +82,25 @@ namespace BoVoyage.Core.Services
                 contexte.Entry(dossierReservation).State = EntityState.Deleted;
                 contexte.SaveChanges();
             }
+        }
+
+        public decimal CalculerPrixTotal(List<Participant> listeParticipant, int idVoyage, int? idAssurance)
+        {
+            decimal prixTotal = 0;
+            Voyage voyage = serviceVoyage.TrouverVoyage(idVoyage);
+
+            Assurance assurance = null;
+            if (idAssurance > 0)
+            {
+                assurance = serviceAssurance.TrouverAssurance(idAssurance);
+                prixTotal = prixTotal + assurance.Montant;
+            }
+            foreach (Participant participant in listeParticipant)
+            {
+                prixTotal = prixTotal + (voyage.CalculMarge() * Convert.ToDecimal(participant.Reduction));
+            }
+
+            return prixTotal;
         }
 
 

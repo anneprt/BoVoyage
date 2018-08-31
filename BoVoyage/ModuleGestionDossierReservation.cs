@@ -43,12 +43,7 @@ namespace BoVoyage
 				FonctionAExecuter = this.AfficherMessageFonctionnalite
 			});
 
-			menu.AjouterElement(new ElementMenu("5", "Consulter l'état d'un dossier de réservation")
-			{
-				FonctionAExecuter = this.AfficherMessageFonctionnalite
-			});
-
-			menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
+            menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
 		}
 
 		private void Lister()
@@ -65,54 +60,56 @@ namespace BoVoyage
 			var idVoyage = ConsoleSaisie.SaisirEntierObligatoire("Identifiant du voyage ?");
 			ConsoleHelper.AfficherListe(serviceClient.ListerClient(), ElementsAffichage.strategieAffichageClient);
 			var idClient = ConsoleSaisie.SaisirEntierObligatoire("Identifiant du client ?");
-			ConsoleHelper.AfficherListe(serviceParticipant.ListerParticipant(), ElementsAffichage.strategieAffichageParticipant);
-			var nombreParticipant = ConsoleSaisie.SaisirEntierObligatoire("Nombre de participants?");
-			ConsoleHelper.AfficherListe(serviceAssurance.ListerAssurance(), ElementsAffichage.strategieAffichageAssurance);
-			bool choixAssurance = ConsoleSaisie.SaisirBooleenObligatoire("Assurance o/n?");
+            ConsoleHelper.AfficherListe(serviceParticipant.ListerParticipant(), ElementsAffichage.strategieAffichageParticipant);
+            List<string> listeIdentifiant = null;
+            while (listeIdentifiant == null)
+            {
+                listeIdentifiant = new List<string>();
+                var reponseListeIdentifiant = ConsoleSaisie.SaisirChaineObligatoire("Donnez la liste des identifiants des participants (maximum 9 et séparés par des virgules)");
+                listeIdentifiant = reponseListeIdentifiant.Split(',').ToList();
+                if (listeIdentifiant.Count() > 9)
+                {
+                    ConsoleHelper.AfficherMessageErreur("Vous ne pouvez pas selectionner plus de 9 participants");
+                    listeIdentifiant = null;
+                }
+            }
 
-			//switch (choixAssurance = ConsoleSaisie.SaisirBooleenObligatoire("Assurance o/n?"))
-			//{
-			//	case "o":
-			//		{
+            List<Participant> listeParticipant = new List<Participant>();
+            foreach (string identifiant in listeIdentifiant)
+            {
+                int idParticipant = int.Parse(identifiant);
+                listeParticipant.Add(serviceParticipant.TrouverParticipant(idParticipant));
+            }
 
-			//			//prix total +20 euros;
-			//			break;
-			//		}
-			//	case "n":
-			//		{
-			//			break;
-			//		}
+            ConsoleHelper.AfficherListe(serviceAssurance.ListerAssurance(), ElementsAffichage.strategieAffichageAssurance);
+            var idAssurance = ConsoleSaisie.SaisirEntierOptionnel("Identifiant de l'assurance ?");
 
+            decimal prixTotal = service.CalculerPrixTotal(listeParticipant, idVoyage, idAssurance);
 
-			//}
-
-
-			//TO DO : si oui on ajoute 20 euros au total si non rien
-			var numeroUnique = ConsoleSaisie.SaisirEntierObligatoire("Numéro unique ?");
+            var numeroUnique = ConsoleSaisie.SaisirEntierObligatoire("Numéro unique ?");
 			var numeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numéro carte bancaire ?");
-
-
-
+            
 			var voyage = serviceVoyage.TrouverVoyage(idVoyage);
-
-
+            
 			DossierReservation dossierReservation = new DossierReservation
 			{
 				NumeroUnique = numeroUnique,
 				NumeroCarteBancaire = numeroCarteBancaire,
 				IdClient = idClient,
-				ChoixAssurance = choixAssurance,
-				NombreParticipant = nombreParticipant,
+				NombreParticipant = listeParticipant.Count,
 				IdVoyage = idVoyage,
-				PrixTotal = voyage.PrixParPersonne,
+				PrixTotal = prixTotal,
+                Participant = listeParticipant.First(),
 				PrixParPersonne = voyage.PrixParPersonne,
-				Etat = EtatDossierReservation.EnAttente
-			};
+				Etat = EtatDossierReservation.EnAttente,
+                IdAssurance = idAssurance
+            };
 
 
 			service.EnregistrerReservation(dossierReservation);
 		}
-		private void AfficherMessageFonctionnalite()
+
+        private void AfficherMessageFonctionnalite()
 		{
 			ConsoleColor couleur = ConsoleColor.Red;
 			Console.ForegroundColor = couleur;

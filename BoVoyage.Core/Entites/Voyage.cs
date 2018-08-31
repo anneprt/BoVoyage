@@ -27,7 +27,10 @@ namespace BoVoyage.Core.Entites
 
         public static void Reserver(int places) { }
 
-          
+        public decimal CalculMarge()
+        {
+            return PrixParPersonne + (0.1m * PrixParPersonne);
+        }
         
 
 

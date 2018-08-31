@@ -1,5 +1,6 @@
 ﻿using BoVoyage.Core.Data;
 using BoVoyage.Core.Entites;
+using BoVoyage.Core.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -79,7 +80,12 @@ namespace BoVoyage.Core.Services
 		{
 			using (var contexte = new Contexte())
 			{
-                var participant = contexte.Destinations.Find(id);
+                var participant = contexte.Participants.Find(id);
+                var nbDossier = contexte.DossiersReservations.Where(x => x.IdParticipant == id).Count();
+                if (nbDossier > 0)
+                {
+                    throw new BusinessException($"Des dossiers de réservation existent pour le participant {participant.Nom}");
+                }
                 contexte.Entry(participant).State = EntityState.Deleted;
 				contexte.SaveChanges();
 			}

@@ -45,7 +45,6 @@ namespace BoVoyage.Core.Entites
         public EtatDossierReservation Etat { get; set; }
         public RaisonAnnulationDossier Raison { get; set; }
 
-		public bool ChoixAssurance { get; set; }
         public static void Annuler(RaisonAnnulationDossier Raison) { }
         public static void ValiderSolvabilite() { }
       
@@ -53,12 +52,6 @@ namespace BoVoyage.Core.Entites
         public void Accepter()
         {
             Etat = EtatDossierReservation.Acceptee;
-        }
-
-        public void  CalculerPrixMarge()
-        {
-          
-           this.PrixParPersonne = Voyage.PrixParPersonne * (10 / 100);
         }
 
         public void CalculerPrixTotal()
