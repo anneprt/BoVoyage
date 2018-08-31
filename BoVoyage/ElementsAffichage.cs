@@ -41,7 +41,10 @@ namespace BoVoyage
 
         public static readonly List<InformationAffichage> strategieAffichageDestination = new List<InformationAffichage>
             {
-                InformationAffichage.Creer<Destination>(x=>x.Id, "Id", 3)
+                InformationAffichage.Creer<Destination>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Destination>(x=>x.Continent, "Continent", 20),
+                InformationAffichage.Creer<Destination>(x=>x.Pays, "Pays", 20),
+                InformationAffichage.Creer<Destination>(x=>x.Description, "Description", 30)
 
             };
 

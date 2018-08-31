@@ -44,6 +44,8 @@ namespace BoVoyage.Core.Entites
         public decimal PrixTotal { get; set; }
         public EtatDossierReservation Etat { get; set; }
         public RaisonAnnulationDossier Raison { get; set; }
+
+		public bool ChoixAssurance { get; set; }
         public static void Annuler(RaisonAnnulationDossier Raison) { }
         public static void ValiderSolvabilite() { }
 
