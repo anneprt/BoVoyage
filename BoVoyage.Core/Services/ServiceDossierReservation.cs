@@ -46,7 +46,7 @@ namespace BoVoyage.Core.Services
                 switch (columnFiltre)
                 {
                     case "NumeroUnique": return contexte.DossiersReservations.Where(x => x.NumeroUnique == int.Parse(valeurFiltre.ToString())).ToList();
-                    case "Client": return contexte.DossiersReservations.Where(x => x.Client.Nom.StartsWith(valeurFiltre.ToString())).ToList();
+                    case "Client": return contexte.DossiersReservations.Where(x => x.Client.Nom.ToUpper().StartsWith(valeurFiltre.ToString().ToUpper())).ToList();
                     default: throw new Exception("Le filtrage se fait uniquement par numéro unique ou par client. Veuillez recommencer");
                 }
             }

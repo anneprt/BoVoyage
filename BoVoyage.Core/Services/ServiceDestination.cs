@@ -46,8 +46,8 @@ namespace BoVoyage.Core.Services
             {
                 switch (columnFiltre)
                 {
-                    case "Continent": return contexte.Destinations.Where(x => x.Continent.StartsWith(valeurFiltre.ToString())).ToList();
-                    case "Pays": return contexte.Destinations.Where(x => x.Pays.StartsWith(valeurFiltre.ToString())).ToList();
+                    case "Continent": return contexte.Destinations.Where(x => x.Continent.ToUpper().StartsWith(valeurFiltre.ToString().ToUpper())).ToList();
+                    case "Pays": return contexte.Destinations.Where(x => x.Pays.ToUpper().StartsWith(valeurFiltre.ToString().ToUpper())).ToList();
                     default: throw new Exception("Le filtrage se fait uniquement par continent ou par pays. Veuillez recommencer");
                 }
             }
