@@ -17,6 +17,8 @@ namespace BoVoyage
         private readonly ServiceParticipant serviceParticipant = new ServiceParticipant();
         private readonly ServiceAssurance serviceAssurance = new ServiceAssurance();
 
+    
+
         public ModuleGestionDossierReservation(Application application, string nomModule) 
             : base(application, nomModule)
         {
@@ -78,12 +80,14 @@ namespace BoVoyage
                 IdAssurance = idAssurance,
                 IdParticipant = idParticipant,
                 IdVoyage = idVoyage,
-                PrixTotal = 0,
-                PrixParPersonne = 0,
+                PrixParPersonne = voyage.PrixParPersonne,
+                
                 Etat = EtatDossierReservation.EnAttente
             };
-
+            dossierReservation.CalculerPrixTotal();
             service.EnregistrerReservation(dossierReservation);
+            
+            
         }
 		private void AfficherMessageFonctionnalite()
 		{

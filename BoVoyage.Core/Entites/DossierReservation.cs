@@ -46,16 +46,17 @@ namespace BoVoyage.Core.Entites
         public RaisonAnnulationDossier Raison { get; set; }
         public static void Annuler(RaisonAnnulationDossier Raison) { }
         public static void ValiderSolvabilite() { }
+      
 
         public void Accepter()
         {
             Etat = EtatDossierReservation.Acceptee;
         }
 
-        public void CalculerPrixMarge()
+        public void  CalculerPrixMarge()
         {
-
-            this.PrixParPersonne = Voyage.PrixParPersonne * (10 / 100);
+          
+           this.PrixParPersonne = Voyage.PrixParPersonne * (10 / 100);
         }
 
         public void CalculerPrixTotal()
