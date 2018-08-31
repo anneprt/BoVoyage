@@ -16,7 +16,9 @@ namespace BoVoyage
                 InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date Aller", 10),
                 InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date Retour", 10),
                 InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix par personne", 15),
-                InformationAffichage.Creer<Voyage>(x=>x.Destination.Pays, "Destination", 15)
+                InformationAffichage.Creer<Voyage>(x=>x.Destination.Pays, "Destination", 15),
+                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places disponibles", 15)
+
 
             };
 
