@@ -63,25 +63,28 @@ namespace BoVoyage
             var idParticipant = ConsoleSaisie.SaisirEntierObligatoire("Nombre de participants?");
             ConsoleHelper.AfficherListe(serviceAssurance.ListerAssurance(), ElementsAffichage.strategieAffichageAssurance);
             var idAssurance = ConsoleSaisie.SaisirEntierOptionnel("Assurance o/n?");
+			//TO DO : si oui on ajoute 20 euros au total si non rien
             var numeroUnique = ConsoleSaisie.SaisirEntierObligatoire("Numéro unique ?");
             var numeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numéro carte bancaire ?");
-            
-            //Recuperer voyage par rapport à l'Id==>TO DO calcul prix avec reduction etc
-            var voyage = serviceVoyage.TrouverVoyage(idVoyage);
-           
 
-                    DossierReservation dossierReservation = new DossierReservation
-            {
-                NumeroUnique = numeroUnique,
-                NumeroCarteBancaire = numeroCarteBancaire,
-                IdClient = idClient,
-                IdAssurance = idAssurance,
-                IdParticipant = idParticipant,
-                IdVoyage = idVoyage,
-                PrixTotal = 0,
-                PrixParPersonne = 0,
-                Etat = EtatDossierReservation.EnAttente
-            };
+		
+           
+            var voyage = serviceVoyage.TrouverVoyage(idVoyage);
+
+
+			DossierReservation dossierReservation = new DossierReservation
+			{
+				NumeroUnique = numeroUnique,
+				NumeroCarteBancaire = numeroCarteBancaire,
+				IdClient = idClient,
+				IdAssurance = idAssurance,
+				IdParticipant = idParticipant,
+				IdVoyage = idVoyage,
+				PrixTotal = 0,
+				PrixParPersonne = 0,
+				Etat = EtatDossierReservation.EnAttente
+			};
+            
 
             service.EnregistrerReservation(dossierReservation);
         }

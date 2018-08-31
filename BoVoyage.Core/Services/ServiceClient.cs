@@ -78,6 +78,7 @@ namespace BoVoyage.Core.Services
 				contexte.Clients.Attach(client);
 				contexte.Entry(client).State = EntityState.Modified;
 				contexte.SaveChanges();
+			
 
 			}
 		}
@@ -103,6 +104,6 @@ namespace BoVoyage.Core.Services
 			}
 		}
 
-
+		
 	}
 }

@@ -48,8 +48,8 @@ namespace BoVoyage.Core.Services
             {
                 switch (columnFiltre)
                 {
-                    case "Nom": return contexte.Participants.Where(x => x.Nom.StartsWith(valeurFiltre.ToString())).ToList();
-                    case "Prenom": return contexte.Participants.Where(x => x.Prenom.StartsWith(valeurFiltre.ToString())).ToList();
+                    case "Nom": return contexte.Participants.Where(x => x.Nom.ToUpper().StartsWith(valeurFiltre.ToString().ToUpper())).ToList();
+                    case "Prenom": return contexte.Participants.Where(x => x.Prenom.ToUpper().StartsWith(valeurFiltre.ToString().ToUpper())).ToList();
                     default: throw new Exception("Le filtrage se fait uniquement par nom ou par prénom. Veuillez recommencer");
                 }
             }

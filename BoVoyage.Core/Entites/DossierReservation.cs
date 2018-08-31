@@ -49,7 +49,7 @@ namespace BoVoyage.Core.Entites
 
         public void PrixT() {
 
-            this.PrixTotal = ((Voyage.PrixParPersonne * Participant.NombreParticipant) * (10 / 100));
+            this.PrixTotal = ((Voyage.PrixParPersonne * NombreParticipant) * (10 / 100));
 
         }
 
