@@ -49,7 +49,7 @@ namespace BoVoyage.Core.Services
                 switch (columnFiltre)
                 {
                     case "destination": return contexte.Voyages.Where(x => x.Destination.Pays.StartsWith(valeurFiltre.ToString())).ToList();
-                    default: throw new Exception("Ca existe pas");
+                    default: throw new Exception("Le filtrage se fait uniquement par voyage. Veuillez recommencer");
                 }
             }
         }
