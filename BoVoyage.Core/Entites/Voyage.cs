@@ -24,6 +24,12 @@ namespace BoVoyage.Core.Entites
         public int PlacesDisponibles { get; set; }
         public decimal PrixParPersonne { get; set; }
 
-        public static void Reserver() { }
+        public static void Reserver(int places) { }
+
+          
+        
+
+
+        
     }
 }

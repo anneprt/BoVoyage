@@ -45,9 +45,10 @@ namespace BoVoyage.Core.Entites
         }
         public EtatDossierReservation Etat { get; set; }
         public RaisonAnnulationDossier Raison { get; set; }
-       
 
-        public static void Annuler()  { }
+
+        public static void Annuler(RaisonAnnulationDossier Raison) { }
+
         public static void ValiderSolvabilite() { }
 
         public void Accepter() {
