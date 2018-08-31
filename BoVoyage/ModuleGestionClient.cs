@@ -39,9 +39,9 @@ namespace BoVoyage
 
             });
 
-            menu.AjouterElement(new ElementMenu("4", "Modifier un client")
+            menu.AjouterElement(new ElementMenu("4", "Modifier le nom d'un client")
             {
-                FonctionAExecuter = this.AfficherMessageFonctionnalite
+                FonctionAExecuter = this.ModifierClient
 
             });
 
@@ -78,6 +78,17 @@ namespace BoVoyage
             this.service.CreerClient(client);
         }
 
+        private void ModifierClient()
+        {
+            ConsoleHelper.AfficherEntete("Modifier le nom d'un client");
+            AfficherListe();
+            var id = ConsoleSaisie.SaisirEntierObligatoire("Identifiant du client ?");
+            var nom = ConsoleSaisie.SaisirChaineObligatoire("Nouveau nom du client ?");
+            Client client = service.TrouverClient(id);
+            client.Nom = nom;
+            service.ModifierClient(client);
+        }
+
         private void SupprimerClient()
         {
             ConsoleHelper.AfficherEntete("Supprimer des clients");
@@ -90,8 +101,6 @@ namespace BoVoyage
             {
                 ConsoleHelper.AfficherMessageErreur(erreur.Message);
             }
-
-
         }
 
         private void FiltrerClient()
@@ -113,8 +122,7 @@ namespace BoVoyage
 			Console.ForegroundColor = couleur;
 			Console.WriteLine("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application");
 			Console.ResetColor();
-
-		}
+        }
 
 	}
 }
