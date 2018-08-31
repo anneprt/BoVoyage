@@ -32,7 +32,17 @@ namespace BoVoyage
             {
                 FonctionAExecuter = this.Creer
             });
-            menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
+
+			menu.AjouterElement(new ElementMenu("3", "Supprimer un dossier de réservation")
+			{
+				FonctionAExecuter = this.AfficherMessageFonctionnalite
+			});
+
+			menu.AjouterElement(new ElementMenu("4", "Modifier un dossier de réservation")
+			{
+				FonctionAExecuter = this.AfficherMessageFonctionnalite
+			});
+			menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
 
         private void Lister()
@@ -74,5 +84,13 @@ namespace BoVoyage
 
             service.EnregistrerReservation(dossierReservation);
         }
-    }
+		private void AfficherMessageFonctionnalite()
+		{
+			ConsoleColor couleur = ConsoleColor.Red;
+			Console.ForegroundColor = couleur;
+			Console.WriteLine("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application");
+			Console.ResetColor();
+
+		}
+	}
 }

@@ -49,7 +49,7 @@ namespace BoVoyage.Core.Services
                 switch (columnFiltre)
                 {
                     case "destination": return contexte.Voyages.Where(x => x.Destination.Pays.StartsWith(valeurFiltre.ToString())).ToList();
-                    default: throw new Exception("Le filtrage se fait uniquement par voyage. Veuillez recommencer");
+                    default: throw new Exception("Le filtrage se fait uniquement par destination. Veuillez recommencer");
                 }
             }
         }
@@ -59,6 +59,7 @@ namespace BoVoyage.Core.Services
 			using (var contexte = new Contexte())
 			{
 				return contexte.Voyages.
+					Include(x=> x.Destination.Pays).
 					OrderBy(x => x.DateAller).
 					 ToList();
 			}
