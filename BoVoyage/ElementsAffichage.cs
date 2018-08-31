@@ -48,6 +48,7 @@ namespace BoVoyage
                 InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
                 InformationAffichage.Creer<DossierReservation>(x=>x.Client.Nom, "Client", 10),
                 InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 15),
+                InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 15),
 
             };
 

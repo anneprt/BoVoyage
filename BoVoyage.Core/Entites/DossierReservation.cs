@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entites
 {
-    [Table("DossiersReservations")]
+	
+	[Table("DossiersReservations")]
     public class DossierReservation
     {
         public int Id { get; set; }
@@ -33,7 +34,9 @@ namespace BoVoyage.Core.Entites
         public int NumeroUnique { get; set; }
         [Required]
         public string NumeroCarteBancaire { get; set; }
-        public decimal PrixParPersonne { get; set; }
+		[Column("NombreParticipant")]
+		public int NombreParticipant { get; set; }
+		public decimal PrixParPersonne { get; set; }
         public decimal PrixTotal { get; set; }
        
   
@@ -58,19 +61,19 @@ namespace BoVoyage.Core.Entites
 
         // Calcul du prix total 
 
-           var p = Voyage
+           //var p = Voyage
 
 
 
 
-
-        int id_voyage = OutilsConsole.SaisirEntierObligatoire("Tapez l'identifiant du voyage:\n", "Champs requis!");
+//TO DO :A supprimer etape intermediaire pour calcul du prix
+        /*int id_voyage = OutilsConsole.SaisirEntierObligatoire("Tapez l'identifiant du voyage:\n", "Champs requis!");
     double tarif;
     foreach(Voyage v in voyage_site)
         {
      if(v.Id == id_voyage)
         tarif = double.Parse(OutilsConsole.SaisirChaineObligatoire("Tapez la pourcentage de reduction du voyage:\n", "Champs requis!"));
-        v.ChangerPrix(tarif);
+        v.ChangerPrix(tarif);*/
 
             
 

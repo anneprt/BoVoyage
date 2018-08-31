@@ -60,9 +60,9 @@ namespace BoVoyage
             ConsoleHelper.AfficherListe(serviceClient.ListerClient(), ElementsAffichage.strategieAffichageClient);
             var idClient = ConsoleSaisie.SaisirEntierObligatoire("Identifiant du client ?");
             ConsoleHelper.AfficherListe(serviceParticipant.ListerParticipant(), ElementsAffichage.strategieAffichageParticipant);
-            var idParticipant = ConsoleSaisie.SaisirEntierObligatoire("Identifiant du participant ?");
+            var idParticipant = ConsoleSaisie.SaisirEntierObligatoire("Nombre de participants?");
             ConsoleHelper.AfficherListe(serviceAssurance.ListerAssurance(), ElementsAffichage.strategieAffichageAssurance);
-            var idAssurance = ConsoleSaisie.SaisirEntierOptionnel("Identifiant du participant ?");
+            var idAssurance = ConsoleSaisie.SaisirEntierOptionnel("Assurance o/n?");
             var numeroUnique = ConsoleSaisie.SaisirEntierObligatoire("Numéro unique ?");
             var numeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numéro carte bancaire ?");
             

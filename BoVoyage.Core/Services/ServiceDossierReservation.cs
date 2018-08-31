@@ -55,7 +55,7 @@ namespace BoVoyage.Core.Services
         {
             using (var contexte = new Contexte())
             {
-                return contexte.DossiersReservations.Include (x=>x.Client.Nom).OrderBy(x => x.NumeroUnique).ToList();
+                return contexte.DossiersReservations.Include (x=>x.Client).OrderBy(x => x.NumeroUnique).ToList();
             }
         }
 
