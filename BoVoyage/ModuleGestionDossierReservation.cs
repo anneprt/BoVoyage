@@ -55,12 +55,7 @@ namespace BoVoyage
             var idAssurance = ConsoleSaisie.SaisirEntierOptionnel("Identifiant du participant ?");
             var numeroUnique = ConsoleSaisie.SaisirEntierObligatoire("Numéro unique ?");
             var numeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numéro carte bancaire ?");
-            var reponseClientParticipe = ConsoleSaisie.SaisirChaineObligatoire("Le client participe au voyage ? (o/n)");
-
-            //TO DO :demander nombres participants max 9 
-
-            bool participationClient = reponseClientParticipe == "o";
-
+            
             //Recuperer voyage par rapport à l'Id==>TO DO calcul prix avec reduction etc
             var voyage = serviceVoyage.TrouverVoyage(idVoyage);
             
