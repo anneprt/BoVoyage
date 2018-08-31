@@ -35,6 +35,14 @@ namespace BoVoyage.Core.Entites
         public string NumeroCarteBancaire { get; set; }
         public decimal PrixParPersonne { get; set; }
         public decimal PrixTotal { get; set; }
+       
+  
+        public void ChangerPrix(double pourcentageReduction)
+        {
+            decimal reduction = 40/100;
+            this.PrixParPersonne = this.PrixParPersonne - this.PrixParPersonne * reduction ;
+
+        }
         public EtatDossierReservation Etat { get; set; }
         public RaisonAnnulationDossier Raison { get; set; }
        
@@ -46,6 +54,25 @@ namespace BoVoyage.Core.Entites
             Etat = EtatDossierReservation.Acceptee;
         }
 
+        public void  PrixTTC() { }
+
+        // Calcul du prix total 
+
+           var p = Voyage
+
+
+
+
+
+        int id_voyage = OutilsConsole.SaisirEntierObligatoire("Tapez l'identifiant du voyage:\n", "Champs requis!");
+    double tarif;
+    foreach(Voyage v in voyage_site)
+        {
+     if(v.Id == id_voyage)
+        tarif = double.Parse(OutilsConsole.SaisirChaineObligatoire("Tapez la pourcentage de reduction du voyage:\n", "Champs requis!"));
+        v.ChangerPrix(tarif);
+
+            
 
     }
 }

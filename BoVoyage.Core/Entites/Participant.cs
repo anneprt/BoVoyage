@@ -9,6 +9,6 @@ namespace BoVoyage.Core.Entites
     public class Participant : Personne
     {
         public int NumeroUnique { get; set; }
-        public float? Reduction { get; set; }
+        public double? Reduction { get; set; }
     }
 }
