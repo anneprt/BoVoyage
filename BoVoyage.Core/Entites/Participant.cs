@@ -12,6 +12,27 @@ namespace BoVoyage.Core.Entites
     {
         public int NumeroUnique { get; set; }
         public float? Reduction { get; set; }
-		
-    }
+       
+
+
+        public void CalculerAge () {
+
+            var age = 12;
+
+            if (age < 12)
+            {
+                DossierReservation.CalculerReductionAge();
+
+            }
+            else
+                DossierReservation.CalculerPrixMarge();
+            
+
+
+
+        }
+}
+
+    
+    
 }

@@ -62,11 +62,11 @@ namespace BoVoyage.Core.Entites
         public void CalculerPrixTotal()
         {
 
-            this.PrixTotal = ((PrixParPersonne * NombreParticipant));
+            this.PrixTotal = ((this.PrixParPersonne * NombreParticipant));
         }
 
 
-        public void ChangerPrix(double pourcentageReduction)
+        public void CalculerReductionAge()
         {
             decimal reduction = (40 / 100);
             this.PrixParPersonne = this.PrixParPersonne - this.PrixParPersonne * reduction;
