@@ -46,11 +46,20 @@ namespace BoVoyage.Core.Entites
             this.PrixParPersonne = this.PrixParPersonne - this.PrixParPersonne * reduction ;
 
         }
+
+        public void PrixT() {
+
+            this.PrixTotal = ((Voyage.PrixParPersonne * Participant.NombreParticipant) * (10 / 100));
+
+        }
+
+
         public EtatDossierReservation Etat { get; set; }
         public RaisonAnnulationDossier Raison { get; set; }
-       
 
-        public static void Annuler()  { }
+
+        public static void Annuler(RaisonAnnulationDossier Raison) { }
+
         public static void ValiderSolvabilite() { }
 
         public void Accepter() {
