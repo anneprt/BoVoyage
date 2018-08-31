@@ -59,7 +59,7 @@ namespace BoVoyage.Core.Services
 			using (var contexte = new Contexte())
 			{
 				return contexte.Voyages.
-					Include(x=> x.Destination.Pays).
+					Include(x=> x.Destination).
 					OrderBy(x => x.DateAller).
 					 ToList();
 			}

@@ -15,7 +15,8 @@ namespace BoVoyage
                 InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
                 InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date Aller", 10),
                 InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date Retour", 10),
-                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix par personne", 15)
+                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix par personne", 15),
+                InformationAffichage.Creer<Voyage>(x=>x.Destination.Pays, "Destination", 15)
 
             };
 
@@ -45,7 +46,7 @@ namespace BoVoyage
         public static readonly List<InformationAffichage> strategieAffichageDossierReservation = new List<InformationAffichage>
             {
                 InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<DossierReservation>(x=>x.Client, "Client", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.Client.Nom, "Client", 10),
                 InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 15),
 
             };
