@@ -41,7 +41,7 @@ namespace BoVoyage
 
             menu.AjouterElement(new ElementMenu("4", "Modifier un client")
             {
-                FonctionAExecuter = this.SupprimerClient
+                FonctionAExecuter = this.AfficherMessageFonctionnalite
 
             });
 
@@ -107,5 +107,14 @@ namespace BoVoyage
             ConsoleHelper.AfficherListe(liste, ElementsAffichage.strategieAffichageClient);
         }
 
-    }
+		private void AfficherMessageFonctionnalite()
+		{
+			ConsoleColor couleur = ConsoleColor.Red;
+			Console.ForegroundColor = couleur;
+			Console.WriteLine("Cette fonctionnalité n'est pas implémentée dans la version actuelle de l'application");
+			Console.ResetColor();
+
+		}
+
+	}
 }
