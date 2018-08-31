@@ -68,8 +68,9 @@ namespace BoVoyage
             
             //Recuperer voyage par rapport à l'Id==>TO DO calcul prix avec reduction etc
             var voyage = serviceVoyage.TrouverVoyage(idVoyage);
-            
-            DossierReservation dossierReservation = new DossierReservation
+           
+
+                    DossierReservation dossierReservation = new DossierReservation
             {
                 NumeroUnique = numeroUnique,
                 NumeroCarteBancaire = numeroCarteBancaire,
