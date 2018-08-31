@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,14 +16,19 @@ namespace BoVoyage.Core.Entites
         public string Adresse { get; set; }
         public string Telephone { get; set; }
         public DateTime DateNaissance { get; set; }
-        public int age { get; set; }
 
+        [NotMapped]
+        public int age
 
-        public int GetAge()
         {
-            return DateTime.Now.Date.Subtract(DateNaissance).Days / 365;
-        }      
+            get
+            {
+                return DateTime.Now.Date.Subtract(DateNaissance).Days / 365;
+            }
+        }
 
+
+   
 
     }
 }

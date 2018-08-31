@@ -70,21 +70,21 @@ namespace BoVoyage
 			ConsoleHelper.AfficherListe(serviceAssurance.ListerAssurance(), ElementsAffichage.strategieAffichageAssurance);
 			bool choixAssurance = ConsoleSaisie.SaisirBooleenObligatoire("Assurance o/n?");
 
-			switch (choixAssurance = ConsoleSaisie.SaisirBooleenObligatoire("Assurance o/n?"))
-			{
-				case "o":
-					{
+			//switch (choixAssurance = ConsoleSaisie.SaisirBooleenObligatoire("Assurance o/n?"))
+			//{
+			//	case "o":
+			//		{
 
-						//prix total +20 euros;
-						break;
-					}
-				case "n":
-					{
-						break;
-					}
+			//			//prix total +20 euros;
+			//			break;
+			//		}
+			//	case "n":
+			//		{
+			//			break;
+			//		}
 
 
-			}
+			//}
 
 
 			//TO DO : si oui on ajoute 20 euros au total si non rien

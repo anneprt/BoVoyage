@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace BoVoyage.Core.Entites
 {
-	
-	public class Participant : Personne
+
+    public class Participant : Personne
     {
         public int NumeroUnique { get; set; }
 
-        public double Reduction {
+        public double Reduction
+        {
 
             get
             {
@@ -22,18 +23,7 @@ namespace BoVoyage.Core.Entites
 
                 else
                     return 0d;
-                        }
+            }
         }
-                      
-                   
-                
-            
-
-
-
-        }
-}
-
-    
-    
+    }
 }
